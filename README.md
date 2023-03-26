@@ -23,6 +23,20 @@ source ~/.bashrc
 
 7. Set up your ChatGPT APi - you have to already have an account to make this work. Log into your OpenAI account, click on the menu and select View API Keys. Click on Create new secret key to generate an API key. Make sure to copy and paste this key somewhere safe, it will not be shown again. Never share your API keys, they are unique to your account, any costs incurred will come from your account.
 
-8.
+Next we have to set up speech recognition:
+
+1. Install the Speech Recognition and a couple other Python libraries. 
+
+pip install SpeechRecognition
+sudo apt-get install portaudio19-dev
+pip install pyaudio
+sudo apt-get install flac
+
+2. To make this work I used a USB microphone. We have to find the device index. In my code my device index was 0. If yours isn't 0, replace that number with the correct number. To find the device index use the 'arecord -l' command. If your microphone is plugged in, you should see the corect device number.
+3. I had a hard time getting this to work at first, but then I changed the default card to what was listed for my microphone (card 1 in my case). Open the following file and scroll to the section where it lists defaults. Change the card number in the first two default lines to the correct card number. Exit and save the file.
+
+cat /proc/asound/cards
+
+After all of that set up, the code should work for you. Speech recognition is a bit slow, but I found it to be fairly accurate if you speak clearly. The module doesn't have ALL the nice functionality of the full Chat GPT system, but its a fun build nonetheless.
 
 Credit to Tom's Hardware for getting me started with the OpanAi script.
