@@ -33,10 +33,11 @@ pip install pyaudio
 sudo apt-get install flac
 
 2. To make this work I used a USB microphone. We have to find the device index. In my code my device index was 0. If yours isn't 0, replace that number with the correct number. To find the device index use the 'arecord -l' command. If your microphone is plugged in, you should see the corect device number.
+
 3. I had a hard time getting this to work at first, but then I changed the default card to what was listed for my microphone (card 1 in my case). Open the following file and scroll to the section where it lists defaults. Change the card number in the first two default lines to the correct card number. Exit and save the file.
 
 cat /proc/asound/cards
 
-After all of that set up, the code should work for you. Speech recognition is a bit slow, but I found it to be fairly accurate if you speak clearly. The module doesn't have ALL the nice functionality of the full Chat GPT system, but its a fun build nonetheless.
+After all of that set up, the code should work for you. Don't forget to insert your own OpenAI APi and Device Index. The speech recognition can be a bit slow, but I found it to be fairly accurate if you speak clearly. The module doesn't have ALL the nice functionality of the full Chat GPT system, but its a fun build nonetheless.
 
 Credit to Tom's Hardware for getting me started with the OpanAi script.
